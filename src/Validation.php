@@ -100,7 +100,11 @@ class Validation
         $this->errors = [];
         $params = $request->getParams();
         $params = array_merge((array) $request->getAttribute('routeInfo')[2], $params);
-        $params = array_merge($params, $_FILES);
+        $uploadedFiles = $request->getUploadedFiles();
+
+        foreach($uploadedFiles as $key => $file){
+            $params = array_merge($params, [$key => $_FILES[$key]['tmp_name']]);
+        }
         $this->validate($params, $this->validators);
 
         $request = $request->withAttribute($this->errors_name, $this->getErrors());
