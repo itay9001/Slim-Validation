@@ -1,5 +1,5 @@
 {
-    "name": "davidepastore/slim-validation",
+    "name": "itay9001/slim-validation",
     "description": "A slim middleware for validation based on Respect/Validation",
     "keywords": ["slim","framework","middleware","validation", "validator"],
     "type": "library",
